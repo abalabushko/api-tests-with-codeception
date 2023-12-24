@@ -1,4 +1,7 @@
-{
+{    
+    "name": "abalabushko/api-tests-with-codeception",
+    "description": "API testing using codeception frameworr",
+
     "require-dev": {
         "codeception/codeception": "^5.0",
         "codeception/module-rest": "*",
