@@ -5,7 +5,7 @@ on:
     push:
       branches-ignore: gh-pages
       
-  jobs:
+jobs:
     build:
       runs-on: ubuntu-latest
       steps:
@@ -20,11 +20,11 @@ on:
             coverage: xdebug
             tools: composer:v2
   
-      - name: Validate composer.json and composer.lock
-        run: composer validate
+        - name: Validate composer.json and composer.lock
+          run: composer validate
   
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+        - name: Install dependencies
+          run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
   
-      - name: Run tests
-        run: php vendor/bin/codecept run
+        - name: Run tests
+          run: php vendor/bin/codecept run
