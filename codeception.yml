@@ -12,7 +12,7 @@ suites:
                     depends: PhpBrowser
         step_decorators:
             - \Codeception\Step\AsJson
-         bearerToken: 'API_BEARER_TOKEN'
+        bearerToken: 'API_BEARER_TOKEN'
 
 paths:
     tests: tests
