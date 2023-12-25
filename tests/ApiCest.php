@@ -1,10 +1,6 @@
 <?php
 namespace Tests;
 
-use Codeception\Configuration;
-use Codeception\Module;
-use Codeception\Stub;
-use PSpell\Config;
 use Tests\Support\ApiTester;
 
 class ApiCest 
