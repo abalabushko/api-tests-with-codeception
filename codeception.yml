@@ -8,10 +8,11 @@ suites:
         modules:
             enabled:
                 - REST:
-                    url: http://localhost/api
+                    url: https://gorest.co.in/public/v2
                     depends: PhpBrowser
         step_decorators:
             - \Codeception\Step\AsJson
+         bearerToken: 'API_BEARER_TOKEN'
 
 paths:
     tests: tests
