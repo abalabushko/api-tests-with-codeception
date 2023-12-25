@@ -27,6 +27,6 @@ jobs:
           run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
   
         - name: Run tests
-          run: export API_BEARER_TOKEN=$YOUR_SECRET_TOKEN php vendor/bin/codecept run
+          run: export API_BEARER_TOKEN=$API_BEARER_TOKEN php vendor/bin/codecept run
           env:
             API_BEARER_TOKEN: ${{ secrets.API_BEARER_TOKEN }}
