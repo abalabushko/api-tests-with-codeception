@@ -1,6 +1,10 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Tests;
 
+use Codeception\Util\HttpCode;
 use Tests\Support\ApiTester;
 
 class ApiCest 
@@ -20,8 +24,20 @@ class ApiCest
             ]
         );
 
-        $I->seeResponseCodeIs(201);
+        $I->seeResponseCodeIs(HttpCode::CREATED);
         $I->seeResponseIsJson();
         $I->seeResponseContains('username');
+    }
+
+    public function getUser(ApiTester $I): void
+    {
+        $bearerToken = getenv('API_BEARER_TOKEN');
+        $I->amBearerAuthenticated($bearerToken);
+        $I->sendGet(self::USERS_URL);
+
+        $I->seeResponseCodeIs(HttpCode::OK);
+        $I->seeResponseIsJson();
+        $I->seeResponseContains('username');
+        $I->seeResponseContains('gender');
     }
 }
