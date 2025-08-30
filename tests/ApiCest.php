@@ -11,10 +11,14 @@ class ApiCest
 {    
     public const USERS_URL = '/users/';
 
-    public function createUser(ApiTester $I): void
+    public function _before(ApiTester $I): void
     {
         $bearerToken = getenv('API_BEARER_TOKEN');
         $I->amBearerAuthenticated($bearerToken);
+    }
+
+    public function createUser(ApiTester $I): void
+    {
         $I->sendPost(self::USERS_URL,
         [
             'name' => 'username',
@@ -31,8 +35,6 @@ class ApiCest
 
     public function getUser(ApiTester $I): void
     {
-        $bearerToken = getenv('API_BEARER_TOKEN');
-        $I->amBearerAuthenticated($bearerToken);
         $I->sendGet(self::USERS_URL);
 
         $I->seeResponseCodeIs(HttpCode::OK);
